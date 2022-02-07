@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "docs",
     "target": "es2015",
   },
-  "include": ["*.ts"],
+  "include": ["**/*.ts"],
   "exclude": [""]
 }
