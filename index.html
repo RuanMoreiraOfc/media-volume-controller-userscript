@@ -4,17 +4,26 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Media Volume Controller - Userscript</title>
+      <link rel="stylesheet" href="/dist/index.css" />
+      <script src="/dist/index.js" defer></script>
+      <!--  -->
       <link rel="stylesheet" href="/dist/main.css" />
       <script src="/dist/main.js" defer></script>
    </head>
    <body>
-      <div id="media-volume-controller-userscript">
-         <svg class="content" viewbox="0 0 100 100">
-            <circle class="circle background" />
-            <circle class="circle foreground" />
-            <text class="volume">100</text>
-         </svg>
-      </div>
+      <template>
+         <div id="media-volume-controller-userscript">
+            <svg class="content" viewbox="0 0 100 100">
+               <circle class="circle background" />
+               <circle class="circle foreground" />
+               <text class="volume">100</text>
+            </svg>
+         </div>
+      </template>
+
+      <!--  -->
+
       <video hidden></video>
+      <div id="template-container"></div>
    </body>
 </html>
