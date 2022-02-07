@@ -1,0 +1,110 @@
+$container--className: '#media-volume-controller-userscript';
+$content--className: '.content';
+$volume--className: '.volume';
+$circle--className: '.circle';
+$background--className: $circle--className + '.background';
+$foreground--className: $circle--className + '.foreground';
+
+#{$container--className} {
+    --current-volume-percent: clamp(0, 100, 100);
+
+    &,
+    * {
+        margin: 0;
+        padding: 0;
+
+        box-sizing: border-box;
+        transform-origin: center;
+    }
+
+    --size: 15vmin;
+    --pos: 1vmax;
+
+    width: var(--size);
+    height: var(--size);
+
+    position: fixed;
+    top: var(--pos);
+    right: var(--pos);
+
+    // ***
+
+    #{$content--className} {
+    }
+
+    #{$volume--className} {
+        fill: white;
+
+        font: {
+            family: Roboto, sans-serif;
+            size: clamp(1rem, calc(var(--size) / 3), 3rem);
+            weight: bold;
+            smooth: antialiased;
+        }
+
+        text-anchor: middle;
+        dominant-baseline: central;
+
+        transform: translate(50%, 50%);
+    }
+
+    #{$circle--className} {
+        $_rotate: 0.375turn;
+        $_radius: 32.5;
+        $_stroke-width: $_radius + 2.5;
+        $_cycle: $_radius * 6.27692308; /* MAGIC NUMBER 6>X<7 SOMEHOW */
+
+        --radius: #{$_radius};
+        --stroke-width: #{$_stroke-width};
+
+        --max-dasharray-full-cycle: #{$_cycle};
+        --max-dasharray-proper-cycle: #{$_cycle * 0.75};
+
+        // ----
+
+        r: var(--radius);
+        cx: 50;
+        cy: 50;
+
+        fill: none;
+
+        stroke-width: var(--stroke-width);
+
+        // prettier-ignore
+        stroke-dasharray:
+            var(--max-dasharray-proper-cycle)
+            var(--max-dasharray-full-cycle);
+
+        transform: rotate($_rotate);
+    }
+
+    #{$background--className} {
+        fill: crimson;
+
+        stroke: #363636;
+    }
+
+    #{$foreground--className} {
+        // prettier-ignore
+        stroke: hsl(
+            calc(
+                150 - var(--current-volume-percent) -
+                (50 * var(--current-volume-percent) / 100)
+            ),
+            56%,
+            32%
+        );
+        // prettier-ignore
+        stroke-dashoffset: clamp(
+            0,
+            calc(
+                var(--max-dasharray-proper-cycle) -
+                (
+                    var(--max-dasharray-proper-cycle) *
+                    var(--current-volume-percent)
+                ) / 100
+            ),
+            var(--max-dasharray-proper-cycle)
+        );
+    }
+}
