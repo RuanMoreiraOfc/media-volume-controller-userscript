@@ -40,11 +40,13 @@ document.addEventListener(
 
     // prettier-ignore
     const valuePerWheel =
-      event.ctrlKey === true && event.shiftKey === false
-        ? 10
-        : event.ctrlKey === false && event.shiftKey === false
-          ? 5
-          : 1;
+      event.ctrlKey === true && event.shiftKey === true
+        ? 50
+        : event.ctrlKey === true && event.shiftKey === false
+          ? 10
+          : event.ctrlKey === false && event.shiftKey === false
+            ? 5
+            : 1;
 
     const currentVolume = Math.floor(video.volume * 100);
     const newVolume = Math.floor(

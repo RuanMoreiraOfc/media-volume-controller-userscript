@@ -33,11 +33,13 @@ document.addEventListener('wheel', (event) => {
     event.preventDefault();
     // ---
     // prettier-ignore
-    const valuePerWheel = event.ctrlKey === true && event.shiftKey === false
-        ? 10
-        : event.ctrlKey === false && event.shiftKey === false
-            ? 5
-            : 1;
+    const valuePerWheel = event.ctrlKey === true && event.shiftKey === true
+        ? 50
+        : event.ctrlKey === true && event.shiftKey === false
+            ? 10
+            : event.ctrlKey === false && event.shiftKey === false
+                ? 5
+                : 1;
     const currentVolume = Math.floor(video.volume * 100);
     const newVolume = Math.floor(minmax(currentVolume + Math.sign(event.deltaY) * valuePerWheel * -1));
     const newVolumeAsString = String(newVolume);

@@ -38,6 +38,7 @@ Modifiers:
 - <kbd>Alt</kbd> = 5
 - <kbd>Alt</kbd> + <kbd>Shift</kbd> = 1
 - <kbd>Alt</kbd> + <kbd>Ctrl</kbd> = 10
+- <kbd>Alt</kbd> + <kbd>Ctrl</kbd> + <kbd>Shift</kbd> = 50
 
 ## :camera: Screenshots <span id="id-looking"/>
 
