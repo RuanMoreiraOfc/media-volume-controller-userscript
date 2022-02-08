@@ -22,9 +22,9 @@ const minmax = (x) => Math.min(100, Math.max(0, x));
 // ***
 document.addEventListener('wheel', (event) => {
     var _a, _b;
-    const video = (_a = document.querySelector('video')) !== null && _a !== void 0 ? _a : null;
+    const media = (_a = document.querySelector('video, audio')) !== null && _a !== void 0 ? _a : null;
     const controller = (_b = document.querySelector(DOM_SELECTORS.container)) !== null && _b !== void 0 ? _b : null;
-    if (video === null)
+    if (media === null)
         return;
     if (controller === null)
         return;
@@ -40,10 +40,10 @@ document.addEventListener('wheel', (event) => {
             : event.ctrlKey === false && event.shiftKey === false
                 ? 5
                 : 1;
-    const currentVolume = Math.floor(video.volume * 100);
+    const currentVolume = Math.floor(media.volume * 100);
     const newVolume = Math.floor(minmax(currentVolume + Math.sign(event.deltaY) * valuePerWheel * -1));
     const newVolumeAsString = String(newVolume);
-    video.volume = newVolume / 100;
+    media.volume = newVolume / 100;
     controller.style.setProperty('--current-volume-percent', newVolumeAsString);
     controller.querySelector(DOM_SELECTORS.volume).textContent =
         newVolumeAsString;

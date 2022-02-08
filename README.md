@@ -28,7 +28,7 @@ Media Volume Controller
 ## About <span id="id-about"/>
 
 **Media Volume Controller** is a TamperMonkey UserScript that allows the user to
-change the volume from a video just by pressing <kbd>Alt</kbd> + `Wheel(up/down)`
+change the volume from a media element(video, audio) just by pressing <kbd>Alt</kbd> + `Wheel(up/down)`
 
 The value that will be **increased(or decreased)** rely on the modifier that is
 being pressed;
