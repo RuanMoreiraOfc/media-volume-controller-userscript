@@ -1,9 +1,18 @@
 const mustAsk = Boolean(location.hash === '#ask');
+const templateHTTP = fetch(
+  'https://raw.githubusercontent.com/ruanmoreiraofc/' +
+    location.pathname.split('/')[1] +
+    '/main/main.html',
+);
 
-document.addEventListener('DOMContentLoaded', () => {
-  const template = document.querySelector('template') ?? null;
+document.addEventListener('DOMContentLoaded', async () => {
+  const response = await templateHTTP;
+  const responseAsText = await response.text();
 
-  if (template === null) return;
+  const template = document.createElement('template');
+  template.innerHTML = responseAsText;
+
+  if (response.ok !== true) return;
   if ('content' in template === false) {
     alert('Your browser do not support html templates!');
 
