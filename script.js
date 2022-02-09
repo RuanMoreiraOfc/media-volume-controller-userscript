@@ -45,7 +45,12 @@
   let timer = null;
   container.hidden = true;
 
-  document.addEventListener('wheel', () => {
+  document.addEventListener('wheel', (event) => {
+    const media = document.querySelector('video, audio') ?? null;
+
+    if (media === null) return;
+    if (event.altKey === false) return;
+
     clearTimeout(timer);
     timer = setTimeout(() => {
       container.hidden = true;
