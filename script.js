@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Media Volume Controller
-// @version      1.0.0
+// @version      1.0.1
 // @homepage     https://ruanmoreiraofc.github.io/media-volume-controller-userscript/#ask
 // @description  Allow the user to change the volume from a media element(video, audio) by the wheel of the mouse
 // @author       Ruan Moreira (github.com/ruanmoreiraofc)
