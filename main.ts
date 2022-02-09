@@ -49,7 +49,7 @@ document.addEventListener(
             ? 5
             : 1;
 
-    const currentVolume = Math.floor(media.volume * 100);
+    const currentVolume = Math.ceil(media.volume * (100 ** (1 / 4)) ** 4);
     const newVolume = Math.floor(
       minmax(currentVolume + Math.sign(event.deltaY) * valuePerWheel * -1),
     );
