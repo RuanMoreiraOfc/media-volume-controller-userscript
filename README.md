@@ -21,6 +21,7 @@ Media Volume Controller
 [![card-repo-size]][btn-null]
 [![card-code-size]][btn-null]
 [![card-license]][btn-goto-license]
+[![card-version]][btn-goto-release]
 [![card-issues]][btn-goto-issues]
 
 </div>
@@ -105,12 +106,14 @@ Made with :heart: by Ruan Moreira de Jesus!
 [card-repo-size]: https://img.shields.io/github/repo-size/ruanmoreiraofc/media-volume-controller-userscript?style=for-the-badge&label=Repo%20Size
 [card-code-size]: https://img.shields.io/github/languages/code-size/ruanmoreiraofc/media-volume-controller-userscript?style=for-the-badge&label=Code%20Size
 [card-license]: https://img.shields.io/github/license/ruanmoreiraofc/media-volume-controller-userscript?style=for-the-badge&label=License
+[card-version]: https://img.shields.io/github/release/ruanmoreiraofc/media-volume-controller-userscript?style=for-the-badge&label=Last%20Version
 [card-issues]: https://img.shields.io/github/issues/ruanmoreiraofc/media-volume-controller-userscript?style=for-the-badge
 
 <!-- *** MAIN BUTTONS *** -->
 
 [btn-skip]: #id-preview
 [btn-goto-license]: #id-license
+[btn-goto-release]: https://github.com/ruanmoreiraofc/media-volume-controller-userscript/releases
 [btn-goto-issues]: https://github.com/ruanmoreiraofc/media-volume-controller-userscript/issues?q=is%3Aopen
 [btn-preview]: https://ruanmoreiraofc.github.io/media-volume-controller-userscript/#ask
 [btn-license]: LICENSE
