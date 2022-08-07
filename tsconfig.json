@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "docs",
-    "target": "es2015",
+    "target": "es2019",
   },
   "include": ["**/*.ts"],
   "exclude": [""]

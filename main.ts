@@ -23,11 +23,33 @@ const minmax = (x: number) => Math.min(100, Math.max(0, x));
 
 // ***
 
+let lastMedia = null;
+
 document.addEventListener(
   'wheel',
   (event) => {
+    const mediaElementList = Array.from(
+      document.querySelectorAll<HTMLMediaElement>('video, audio'),
+    );
     const media =
-      document.querySelector<HTMLMediaElement>('video, audio') ?? null;
+      mediaElementList?.flatMap((element, _i, { length: count }) => {
+        validMediaVerification: {
+          condition: {
+            if (count === 1 || element.paused === false) break condition;
+
+            break validMediaVerification;
+          }
+
+          return element;
+        }
+
+        return [];
+      })[0] ??
+      lastMedia ??
+      null;
+
+    lastMedia = media;
+
     const controller =
       document.querySelector<HTMLElement>(DOM_SELECTORS.container) ?? null;
 

@@ -42,11 +42,32 @@
 
   // ***
 
+  let lastMedia = null;
   let timer = null;
   container.hidden = true;
 
   document.addEventListener('wheel', (event) => {
-    const media = document.querySelector('video, audio') ?? null;
+    const mediaElementList = Array.from(
+      document.querySelectorAll('video, audio'),
+    );
+    const media =
+      mediaElementList?.flatMap((element, _i, { length: count }) => {
+        validMediaVerification: {
+          condition: {
+            if (count === 1 || element.paused === false) break condition;
+
+            break validMediaVerification;
+          }
+
+          return element;
+        }
+
+        return [];
+      })[0] ??
+      lastMedia ??
+      null;
+
+    lastMedia = media;
 
     if (media === null) return;
     if (event.altKey === false) return;
